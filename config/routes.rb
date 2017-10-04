@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+  resources :pages, only: [ :index ]
 
-  root to: "pages#home"
+  root to: "pages#index"
 
   namespace :api, defaults: { format: :json } do
-    resources :quotes, only: [ :show ]
+    resources :quotes, only: [ :show, :index, :create ]
   end
 
 end
