@@ -2,7 +2,11 @@ class Quote < ApplicationRecord
 
   def next_id
     unless Quote.last.id == self.id
-      Quote.find(self.id + 1)
+      i = 1
+      while Quote.find(self.id + i) == false
+        i += 1
+      end
+      Quote.find(self.id + i)
     else
       self.id
     end
@@ -10,7 +14,11 @@ class Quote < ApplicationRecord
 
   def previous_id
     unless Quote.first.id == self.id
-      Quote.find(self.id - 1)
+      i = 1
+      while Quote.find(self.id - i) == false
+        i += 1
+      end
+      Quote.find(self.id - i)
     else
       self.id
     end

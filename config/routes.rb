@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   namespace :api, defaults: { format: :json } do
-    resources :quotes, only: [ :show, :index, :create ]
+    resources :quotes, only: [ :show, :create ]
   end
 
 end
